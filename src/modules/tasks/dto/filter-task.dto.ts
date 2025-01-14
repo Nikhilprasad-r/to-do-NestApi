@@ -1,8 +1,8 @@
-import { IsOptional, IsEnum, IsString, IsDate } from 'class-validator';
+import { IsOptional, IsEnum, IsString, IsDate, IsBoolean } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { TaskStatus } from 'src/shared/enums/task-status.enum';
 import { TaskPriority } from 'src/shared/enums/task-priority.enum';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 
 export class FilterTaskDto {
   @ApiProperty({ required: false })
@@ -39,4 +39,10 @@ export class FilterTaskDto {
   @ApiProperty({ required: false, default: 10 })
   @IsOptional()
   limit?: number = 10;
+
+  @ApiProperty({ required: false, description: 'Filter tasks by active status', default: true })
+  @IsOptional()
+  @IsBoolean()
+  @Transform(({ value }) => value === 'true', { toClassOnly: true })
+  isActive?: boolean = true;
 }

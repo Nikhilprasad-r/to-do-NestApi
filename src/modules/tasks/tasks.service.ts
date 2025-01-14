@@ -28,6 +28,7 @@ export class TasksService {
       priority,
       fromDate,
       toDate,
+      isActive = true,
     } = filterDto;
     const skip = (page - 1) * limit;
 
@@ -54,7 +55,7 @@ export class TasksService {
     if (toDate) {
       queryBuilder.andWhere('task.dueDate <= :toDate', { toDate });
     }
-    queryBuilder.andWhere('task.isActive = :isActive', { isActive: true });
+    queryBuilder.andWhere('task.isActive = :isActive', { isActive });
 
     const [tasks, total] = await queryBuilder
       .skip(skip)
