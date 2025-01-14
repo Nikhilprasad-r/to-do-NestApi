@@ -57,7 +57,17 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## API Documentation
 
+This project uses [Swagger](https://swagger.io/) for API documentation. Swagger provides a user-friendly interface to interact with your API and view the available endpoints.
+
+### Setting up Swagger
+
+Swagger is already set up in this project. To access the Swagger UI, run the application and navigate to `/docs` in your browser.
+
+With this setup, you can access the Swagger UI at `http://localhost:3000/docs`.
+
+For more information on how to use and customize Swagger in your NestJS application, check out the [official documentation](https://docs.nestjs.com/openapi/introduction).
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
